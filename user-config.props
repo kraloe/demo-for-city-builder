@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup Label="UserMacros">
+		<GlfwIncludeDir>C:\vcpkg\installed\x64-windows\include</GlfwIncludeDir>
+		<GlfwLibDir>C:\vcpkg\installed\x64-windows\lib</GlfwLibDir>
+		<GladIncludeDir>$(ProjectDir)third_party\glad\include</GladIncludeDir>
+		<GladSrcDir>$(ProjectDir)third_party\glad\src</GladSrcDir>
+		<StbIncludeDir>$(ProjectDir)third_party\stb</StbIncludeDir>
+	</PropertyGroup>
+</Project>
