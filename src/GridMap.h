@@ -5,6 +5,7 @@
 #include "gl_texture.h"
 #include "gl_fbo.h"
 #include "quad.h"
+#include "FastNoiseLite.h"
 
 class GridMap {
 public:
@@ -15,6 +16,12 @@ public:
     void IsometricExportMap(int view);
     void IsometricDrawMap(int index);
     void ResetPerlinTexture();
+
+    void drawTile(int gx, int gy, const GLTexture& tex, float sx, float sy, int height);
+
+    void GenerateHeightMapWithFastNoise(int seed, float frequency, int octaves, float gain, float lacunarity);
+
+    void BakeTileTypesFromHeight();
 
 private:
     std::vector<GridCell> IsoGridMapArray;

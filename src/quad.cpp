@@ -54,17 +54,23 @@ bool quad_init(Quad& q){
     return true;
 }
 
-void quad_draw(const Quad& q, GLuint tex, float x,float y,float w,float h){
-    // Screen-space ortho: origin top-left; y grows down
-    float vp[16]; make_ortho(0, 1280, 720, 0, vp);
-    float M[16]={ w,0,0,0,  0,h,0,0,  0,0,1,0,  x,y,0,1 };
+void quad_draw(const Quad& q, GLuint tex, float x, float y, float w, float h) {
+    GLint vpArr[4]; glGetIntegerv(GL_VIEWPORT, vpArr);
+    float vpW = float(vpArr[2]), vpH = float(vpArr[3]);
+
+    float vp[16]; // make_ortho(left, right, bottom, top, out)
+    make_ortho(0, vpW, vpH, 0, vp);
+
+    float M[16] = { w,0,0,0,  0,h,0,0,  0,0,1,0,  x,y,0,1 };
+
     glUseProgram(q.prog);
-    glUniform1i(q.u_tex,0);
-    glActiveTexture(GL_TEXTURE0); glBindTexture(GL_TEXTURE_2D, tex);
-    glUniformMatrix4fv(q.u_model,1,GL_FALSE,M);
-    glUniformMatrix4fv(q.u_viewproj,1,GL_FALSE,vp);
+    glUniform1i(q.u_tex, 0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex);
+    glUniformMatrix4fv(q.u_model, 1, GL_FALSE, M);
+    glUniformMatrix4fv(q.u_viewproj, 1, GL_FALSE, vp);
     glBindVertexArray(q.vao);
-    glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,0);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
 

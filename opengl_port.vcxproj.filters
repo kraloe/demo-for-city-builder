@@ -9,7 +9,7 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="third_party">
+    <Filter Include="ThirdParty">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -54,13 +54,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="third_party\glad\include\glad\glad.h">
-      <Filter>third_party</Filter>
+      <Filter>ThirdParty</Filter>
     </ClInclude>
     <ClInclude Include="third_party\stb\stb_image.h">
-      <Filter>third_party</Filter>
+      <Filter>ThirdParty</Filter>
     </ClInclude>
     <ClInclude Include="third_party\stb\stb_image_write.h">
-      <Filter>third_party</Filter>
+      <Filter>ThirdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FastNoiseLite.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,7 +101,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="third_party\glad\src\glad.c">
-      <Filter>third_party</Filter>
+      <Filter>ThirdParty</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
